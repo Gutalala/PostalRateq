@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <% include ../partials/header.ejs %>
+  
+</head>
+<script>
+
+  function createResults() {
+     var type = document.getElementById('postType').value;
+     console.log(type);
+     if(type === 'stamped') {
+         document.getElementById("weight").innerHTML = "";
+         // Build out message options
+         for(var i = 1; i<4; i++) {
+             var option = document.createElement('option');
+             option.setAttribute('value', i);
+             option.textContent = i;
+             weight.appendChild(option);
+             weight.insertBefore(option, weight.firstChild);
+         }
+         var option = document.createElement('option');
+         option.setAttribute('value', 3.5);
+         option.textContent = 3.5;
+         weight.appendChild(option);
+         weight.insertBefore(option, weight.firstChild);
+     }
+     if(type === 'metered') {
+         document.getElementById("weight").innerHTML = "";
+         // Build out message options
+         for(var i = 1; i<4; i++) {
+             var option = document.createElement('option');
+             option.setAttribute('value', i);
+             option.textContent = i;
+             weight.appendChild(option);
+             weight.insertBefore(option, weight.firstChild);
+         }
+         var option = document.createElement('option');
+         option.setAttribute('value', 3.5);
+         option.textContent = 3.5;
+         weight.appendChild(option);
+         weight.insertBefore(option, weight.firstChild);
+     }
+     if(type === 'flat') {
+         document.getElementById("weight").innerHTML = "";
+         // Build out message options
+         for(var i = 1; i<14; i++) {
+             var option = document.createElement('option');
+             option.setAttribute('value', i);
+             option.textContent = i;
+             weight.appendChild(option);
+             weight.insertBefore(option, weight.firstChild);
+         }
+     }
+     if(type === 'retail'){
+         document.getElementById("weight").innerHTML = "";
+         // Build out message options
+         for(var i = 1; i<14; i++) {
+             var option = document.createElement('option');
+             option.setAttribute('value', i);
+             option.textContent = i;
+             weight.appendChild(option);
+             weight.insertBefore(option, weight.firstChild);
+         }
+     }
+  }
+</script>
+<body>
+
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li class="active">
+        <a href="/"> Home</a>
+      </li>
+    </ul>
+  </div>
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1>Calculate Your Postal Cost</h1>
+  </div>
+</div>
+<div class="container">
+  <hr>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h3></span> Calculate Postal Cost</h3>
+        <form action="/getrate">
+          <div class="form-group">
+            <label for="postType">Post Type:</label><br>
+            <select  name="postType" id="postType" onchange="if (this.selectedIndex) createResults();" required>
+              <option value="">....</option>
+              <option value="stamped">Letters (Stamped)</option>
+              <option value="metered" >Letters (Metered)</option>
+              <option value="flat">Large Envelopes (Flats)e</option>
+              <option value="retail" >First-Class Package Service—Retail</option>
+              ⋮
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="weight">Max Weight (oz.):</label><br>
+            <select  name="weight" id="weight" >
+
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Calculate</button>
+        </form>
+    </div>
+  </div> 
+</div>
+
+  <br/><br/>
+
+
+      <div class="footer-bottom">
+        <div>
+          <p class="pull-middle copyright"> Copyright © Footer 2017. All right reserved. </p>
+        </div>
+      </div>
+
+
+</body>
+</html>
